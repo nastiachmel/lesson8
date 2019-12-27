@@ -1,0 +1,31 @@
+.text{
+  padding: 5px;
+
+}
+.new-text{
+  overflow: hidden;
+  padding-bottom: 150px;
+  margin: 0 auto;
+}
+
+td{
+  border: 1px solid black;
+}
+
+.sort-table{
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.block-text{
+  border:1px solid black;
+  margin: 0 auto;
+  max-width: 450px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #000000;
+  margin-top: 15px;
+  padding: 10px;
+  touch-action: none;
+  box-sizing: border-box;
+}
+
