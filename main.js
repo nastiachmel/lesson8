@@ -76,9 +76,12 @@ const resizeEl = document.querySelectorAll('.resize');
     window.addEventListener('mousemove', mousemove);
 
     function mousemove(e){
-      const rect =el.getBoundingClientRect();
-      el.style.width= rect.width - (prevX - e.clientX) +'px';
-      el.style.height= rect.height- (prevY - e.clientY) +'px';    
+   
+      if(current.classList.contains('resize')){
+        const rect =el.getBoundingClientRect();
+        el.style.width= rect.width - (prevX - e.clientX) +'px';
+        el.style.height= rect.height- (prevY - e.clientY) +'px';    
+      }
       prevX=e.clientX;
       prevY=e.clientY;
      }
