@@ -68,7 +68,6 @@ el.addEventListener('mousedown', mousedown);
 
 
 const resizeEl = document.querySelectorAll('.resize');
-let current;
 
   function mousedown(e){
     current=e.target;
