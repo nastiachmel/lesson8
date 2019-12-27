@@ -60,23 +60,33 @@ if(type=='number'){
 
 //3.Создать HTML-страницу с блоком текста в рамочке.
 // Реализовать возможность изменять размер блока, если зажать мышку в правом нижнем углу и тянуть ее дальше.
-//???
 
 
-// mousTouch=(e) =>{
-//   let el = e.srcElement || e.target;
-//   el.startX = (e.type == 'mousedown') ? (e.clientX - el.offsetWidth) : 0;
-//   el.startY = (e.type == 'mousedown') ? (e.clientY - el.offsetHeight) : 0;
-// console.log(el.startX);
-// }
+const el = document.querySelector('.block-text');
 
-// newSize= (e) => {
-//   if(el.startX) {
-//     el.style.width = e.clientX - el.startX + 'px';}
- 
-//   if(el.startY) {
-//     el.style.height = e.clientY - el.startY + 'px';}
+el.addEventListener('mousedown', mousedown);
 
 
-// }
-  
+const resizeEl = document.querySelectorAll('.resize');
+let current;
+
+  function mousedown(e){
+    current=e.target;
+    let prevX =e.clientX;
+    let prevY =e.clientY;
+    window.addEventListener('mousemove', mousemove);
+
+    function mousemove(e){
+      const rect =el.getBoundingClientRect();
+      el.style.width= rect.width - (prevX - e.clientX) +'px';
+      el.style.height= rect.height- (prevY - e.clientY) +'px';    
+      prevX=e.clientX;
+      prevY=e.clientY;
+     }
+    window.addEventListener('mouseup', mouseup);
+
+    function mouseup(){
+      window.removeEventListener('mousemove', mousemove);
+      window.removeEventListener('mousedown', mousedown);
+    }
+  }
